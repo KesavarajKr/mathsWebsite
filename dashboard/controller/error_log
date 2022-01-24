@@ -1,0 +1,10 @@
+[01-Oct-2021 13:06:43 UTC] PHP Warning:  include(country.php): failed to open stream: No such file or directory in /home1/saitesml/public_html/Property/dashboard/controller/countryInsert.php on line 11
+[01-Oct-2021 13:06:43 UTC] PHP Warning:  include(country.php): failed to open stream: No such file or directory in /home1/saitesml/public_html/Property/dashboard/controller/countryInsert.php on line 11
+[01-Oct-2021 13:06:43 UTC] PHP Warning:  include(): Failed opening 'country.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home1/saitesml/public_html/Property/dashboard/controller/countryInsert.php on line 11
+[21-Oct-2021 07:01:49 UTC] PHP Warning:  include(area.php): failed to open stream: No such file or directory in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 10
+[21-Oct-2021 07:01:49 UTC] PHP Warning:  include(area.php): failed to open stream: No such file or directory in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 10
+[21-Oct-2021 07:01:49 UTC] PHP Warning:  include(): Failed opening 'area.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 10
+[21-Oct-2021 09:24:14 UTC] PHP Notice:  Undefined variable: City_Name in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 10
+[21-Oct-2021 09:24:14 UTC] PHP Notice:  Undefined variable: State in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 10
+[21-Oct-2021 09:25:01 UTC] PHP Notice:  Undefined variable: City_Name in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 9
+[21-Oct-2021 09:25:01 UTC] PHP Notice:  Undefined variable: State in /home/aehw0q607hzs/public_html/simplemindz.in/property/dashboard/controller/areaInsert.php on line 9

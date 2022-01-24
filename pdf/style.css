@@ -1,0 +1,1077 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    h2 {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .container {
+        padding-left: 80px;
+        padding-right: 80px;
+        font-size: 25px;
+    }
+    
+    .top1 {
+        background: url("bg-img1.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 100vh;
+        position: relative;
+        margin-bottom: 80px;
+    }
+    
+    .top1 .top-title h1 {
+        font-style: italic;
+        font-size: 50px;
+        padding-top: 60px;
+        padding-bottom: 100px;
+    }
+    
+    .top1 span:nth-child(2) {
+        margin-right: 550px;
+    }
+    
+    .top1 .top-footer {
+        color: red;
+    }
+    
+    .top-footer {
+        position: absolute;
+        bottom: 0;
+        right: 30px;
+        padding-bottom: 60px;
+    }
+    
+    .company-intro h2 {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    
+    .company-intro .company-intro-para {
+        border: 1px solid #000;
+        padding: 10px 15px 10px 15px;
+        margin-bottom: 60px;
+    }
+    
+    .first-para {
+        padding-bottom: 60px;
+    }
+    
+    .first-para span {
+        color: red;
+    }
+    
+    .second-para span {
+        color: red;
+    }
+    /**********Team Lead Section *********/
+    
+    .team-lead {
+        min-height: 80vh;
+        position: relative;
+        margin-bottom: 60px;
+    }
+    
+    .team-lead h2 {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    
+    .team-lead-name {
+        margin: auto;
+        width: 1000px;
+    }
+    
+    .team-lead-name span {
+        color: red;
+    }
+    
+    .team-lead-name p {
+        text-align: right;
+        width: 600px;
+        float: right;
+        color: blue;
+    }
+    
+    .team-lead-para {
+        clear: both;
+        width: 1000px;
+        margin: auto;
+        padding-top: 100px;
+    }
+    /**********Team Lead intro Section *********/
+    
+    .team-lead-intro {
+        min-height: 80vh;
+        margin-bottom: 60px;
+    }
+    
+    .team-lead-intro span {
+        padding-right: 80px;
+    }
+    
+    .team-lead-intro h2 {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    
+    .team-lead-intro .team-lead-intro-img {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 50px;
+    }
+    
+    .team-lead-intro-images {
+        clear: both;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 50px;
+    }
+    
+    .team-lead-intro-images .img1 {
+        margin-right: 40px;
+    }
+    
+    .team-lead-intro-images .img2 {
+        margin-right: 40px;
+    }
+    
+    .team-lead-intro-images .img3 {
+        margin-right: 10px;
+    }
+    
+    .team-lead-intro-para2 {
+        margin: auto;
+        margin-bottom: 50px;
+    }
+    
+    .team-lead-intro-para2 p span {
+        color: green;
+        margin-left: 150px;
+    }
+    
+    .team-lead-intro-footer p {
+        color: blue;
+    }
+    /**********Analysis Intro*****************/
+    
+    .analysis-intro {
+        margin-bottom: 80px;
+    }
+    
+    .analysis-intro h2 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .analysis-intro p {
+        margin-bottom: 30px;
+    }
+    
+    .analysis-intro-para {
+        margin: auto;
+        border: 1px solid #000;
+        padding: 20px 40px 20px 40px;
+    }
+    /*********Good Luck************/
+    
+    .good-luck {
+        margin-bottom: 80px;
+    }
+    
+    .good-luck-div {
+        border: 1px solid #000;
+        margin: auto;
+        padding: 20px 60px 15px 60px;
+    }
+    
+    .good-luck h2 {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+    
+    .good-luck p {
+        margin-bottom: 20px;
+    }
+    
+    .good-luck ul li {
+        list-style: none;
+        margin: 10px;
+    }
+    
+    .good-luck-footer p {
+        margin-top: 40px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    /*********Chapters*******************/
+    
+    .chapter {
+        margin-bottom: 80px;
+    }
+    
+    .chapter h2 {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+    
+    .chapters-div {
+        border: 1px solid #000;
+        padding: 20px 40px 15px 40px;
+        margin-bottom: 50px;
+    }
+    
+    .chapters-div p {
+        font-size: 30px;
+        font-weight: bold;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    
+    .chapters-div ul li {
+        list-style: none;
+        margin: 20px;
+    }
+    
+    .chapters-section h3 {
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    
+    .chapters-section img {
+        padding-left: 150px;
+    }
+    /***********Interpretaion-section********************/
+    
+    .interpretaion-section {
+        margin-bottom: 80px;
+    }
+    
+    .interpretaion-section h2 {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .interpretation-div {
+        border: 1px solid #000;
+        padding: 20px 60px 20px 60px;
+        color: blue;
+    }
+    /********** Table Answer*******************/
+    
+    .table-answer1 {
+        margin-top: 80px;
+        margin-bottom: 80px;
+        clear: both;
+    }
+    
+    .table-answer1 h2 {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .table-answer1 p {
+        border: 1px solid #000;
+        padding: 20px 60px 20px 60px;
+        color: blue;
+    }
+    /*********** Multiple-intelligence-section ***************/
+    
+    .multiple-intelligence-section {
+        margin-bottom: 60px;
+    }
+    
+    .multiple-intelligence-section h2 {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .multiple-intel-para {
+        border: 1px solid #000;
+        padding: 20px 60px 20px 60px;
+    }
+    
+    .multiple-intel-para span {
+        color: blue;
+    }
+    
+    .multiple-intel-para p {
+        padding: 20px 0 20px 0;
+    }
+    /************ BODY KINESTHIC INTELLIGENCE Section *****************/
+    
+    .body-intel-section {
+        margin-bottom: 80px;
+    }
+    
+    .body-intel1 {
+        width: 800px;
+        float: left;
+        margin-right: 40px;
+        margin-bottom: 50px;
+    }
+    
+    .body-intel1 table {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-top: none;
+        border-collapse: collapse;
+    }
+    
+    .body-intel1 table td {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-top: none;
+        border-collapse: collapse;
+        padding: 15px;
+        text-align: justify;
+    }
+    
+    .body-intel1 .t1 {
+        border: 1px solid #000;
+    }
+    
+    .body-intel1 .t1 tr td {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .body-intel1 .t1 tr td:nth-child(2) {
+        color: blue;
+    }
+    
+    .body-intel1 .t1 tr td:nth-child(1) {
+        color: red;
+        width: 50%;
+    }
+    
+    .body-intel2-mus table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .body-intel2-mus table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 26px;
+    }
+    
+    .body-intel2-nat table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .body-intel2-nat table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 28px;
+    }
+    
+    .body-intel2 table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .body-intel2 table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 25px;
+    }
+    /************* Table Images  *********************/
+    
+    .table-images1 {
+        margin-bottom: 60px;
+    }
+    
+    .table-list {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        clear: both;
+    }
+    
+    .table-list ol {
+        display: flex;
+    }
+    
+    .table-list ol li {
+        margin-left: 150px;
+    }
+    
+    .table-img {
+        padding-bottom: 50px;
+    }
+    
+    .table-img table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .table-img table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .table-graph img {
+        padding-left: 180px;
+    }
+    /************ Spatial-intel-section *****************/
+    
+    .spatial-intel-section {
+        margin-bottom: 80px;
+    }
+    
+    .spatial-intel1 {
+        width: 850px;
+        float: left;
+        margin-right: 40px;
+    }
+    
+    .spatial-intel1 table {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-top: none;
+        border-collapse: collapse;
+    }
+    
+    .spatial-intel1 table td {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-top: none;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .spatial-intel1 .t1 {
+        border: 1px solid #000;
+    }
+    
+    .spatial-intel1 .t1 tr td {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .spatial-intel1 .t1 tr td:nth-child(2) {
+        color: blue;
+    }
+    
+    .spatial-intel1 .t1 tr td:nth-child(1) {
+        color: red;
+        width: 50%;
+    }
+    
+    .spatial-intel2 {}
+    
+    .spatial-intel2 table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .spatial-intel2 table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 24px;
+    }
+    /************ INTRA PERSONEL INTELLIGENCE Section *****************/
+    
+    .intra-intel-section {
+        margin-bottom: 80px;
+    }
+    
+    .intra-intel1 {
+        width: 800px;
+        float: left;
+        margin-right: 40px;
+    }
+    
+    .intra-intel1 table {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-top: none;
+        border-collapse: collapse;
+    }
+    
+    .intra-intel1 table td {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-top: none;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .intra-intel1 .t1 {
+        border: 1px solid #000;
+    }
+    
+    .intra-intel1 .t1 tr td {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .intra-intel1 .t1 tr td:nth-child(2) {
+        color: blue;
+    }
+    
+    .intra-intel1 .t1 tr td:nth-child(1) {
+        color: red;
+        width: 50%;
+    }
+    
+    .intra-intel2 {}
+    
+    .intra-intel2 table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+    
+    .intra-intel2 table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 30.5px;
+    }
+    /************ QUOTIENTS SECTION *******************/
+    
+    .quotients-section {
+        margin-bottom: 60px;
+    }
+    
+    .quotients-div {
+        margin-left: 50px;
+        margin-bottom: 60px;
+        display: grid;
+        grid-template-columns: 10% 45% 45%;
+        grid-template-rows: auto;
+        grid-template-areas: "side left right";
+    }
+    
+    .side {
+        grid-area: side;
+        border: 1px solid #000;
+        padding: 30px 0 0 30px;
+        color: red;
+    }
+    
+    .left-side,
+    .left-side-eq,
+    .left-side-cq,
+    .left-side-aq,
+    .left-side-bq {
+        padding: 30px 50px 30px 50px;
+        grid-area: left;
+        border: 1px solid #000;
+    }
+    
+    .left-side ul {
+        background: lightgreen;
+        padding: 10px;
+    }
+    
+    .left-side-eq ul {
+        background: pink;
+        padding: 10px;
+    }
+    
+    .left-side-cq ul {
+        background: lightgray;
+        padding: 10px;
+    }
+    
+    .left-side-aq ul {
+        background: lightseagreen;
+        padding: 10px;
+    }
+    
+    .left-side-bq ul {
+        background: rgb(248, 248, 83);
+        padding: 10px;
+    }
+    
+    .left-side ul li,
+    .left-side-eq ul li,
+    .left-side-cq ul li,
+    .left-side-aq ul li,
+    .left-side-bq ul li {
+        list-style: none;
+        margin: 10px 0 10px 0;
+    }
+    
+    .right-side {
+        padding: 30px 40px 30px 40px;
+        grid-area: right;
+        border: 1px solid #000;
+    }
+    
+    .right-side span {
+        color: red;
+        text-align: center;
+        padding: 10px 0 0;
+    }
+    
+    .right-side p {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+    
+    .right-side ol {
+        margin-left: 25px;
+    }
+    /************ QUOTIENTS - ANALYSIS *****************/
+    
+    .quotients-analysis {
+        margin-bottom: 50px;
+        margin-left: 30px;
+        display: flex;
+    }
+    
+    .quotient-table {
+        margin-right: 50px;
+    }
+    
+    .quotient-table table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 25px;
+    }
+    
+    .quotient-table table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 15px 25px 15px 25px;
+    }
+    
+    .quotient-table table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 25px;
+    }
+    /******************  BRAIN DOMINANCE ****************************/
+    
+    .brain-analysis-table {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .brain-analysis-table table {
+        border: 1px solid #000;
+        margin-bottom: 80px;
+        margin-right: 80px;
+    }
+    
+    .brain-analysis-table table td {
+        margin-bottom: 50px;
+        padding: 25px;
+    }
+    
+    .brain-dominance {
+        clear: both;
+        margin-top: 80px;
+    }
+    
+    .brain-para {
+        text-align: justify;
+        border: 1px solid #000;
+        padding: 20px 60px 20px 60px;
+        margin-bottom: 50px;
+    }
+    
+    .brain-img-para {
+        border: 1px solid #000;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .brain-img {
+        padding: 50px 30px 10px 30px;
+    }
+    
+    .brain-para2 {
+        text-align: justify;
+        padding: 50px 30px 50px 20px;
+    }
+    /* <!--------------- Brain Analysis Section ---------------------> */
+    
+    .brain-analysis-img {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .brain-analysis {
+        margin-top: 80px;
+    }
+    /* <!----------------MODALITY VISUAL----------------------> */
+    
+    .modality-visual {
+        margin-top: 80px;
+    }
+    
+    .modality-para {
+        text-align: justify;
+        border: 1px solid #000;
+        padding: 20px 40px 20px 40px;
+        color: blue;
+    }
+    /************ MODALITY ANALYSIS ****************/
+    
+    .modality-analysis {
+        margin-top: 80px;
+    }
+    
+    .modality-analysis-2 {
+        display: flex;
+    }
+    
+    .modality-table {
+        float: left;
+        margin-right: 80px;
+        margin-top: 8px;
+    }
+    
+    .modality-t1 table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        margin: 0 20px 30px 20px;
+    }
+    
+    .modality-t1 table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 35px 10px 35px;
+    }
+    
+    .modality-t1 table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 35px 10px 35px;
+    }
+    
+    .modality-t2 table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 20px 10px 20px 10px;
+    }
+    
+    .modality-t2 table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 20px 30px 20px 30px;
+    }
+    
+    .modality-t2 table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 20px 30px 20px 30px;
+    }
+    /************** john holland analysis ********************/
+    
+    .john-holland-analysis {
+        margin-top: 200px;
+        clear: both;
+    }
+    
+    .john-holland-analysis-img {
+        clear: both;
+        text-align: center;
+    }
+    /*************** JOHN HOLLAND INTRO ********************/
+    
+    .john-holland-intro {
+        margin-top: 50px;
+    }
+    
+    .john-holland-intro-para {
+        text-align: justify;
+        border: 1px solid #000;
+        padding: 20px 50px 20px 50px;
+        margin-bottom: 40px;
+    }
+    
+    .john-holland-intro-para2 {
+        text-align: justify;
+        border: 1px solid #000;
+        padding: 20px 50px 20px 50px;
+    }
+    /* <!---------------  RIASEC ANALYSIS--------------------> */
+    
+    .riasec-analysis {
+        margin-top: 80px;
+    }
+    
+    .riasec-analysis-table {
+        float: left;
+        margin-right: 50px;
+        margin-top: 8px;
+    }
+    
+    .riasec-analysis-table table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+    }
+    
+    .riasec-analysis-table table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 30px 10px 30px;
+    }
+    
+    .riasec-analysis-table table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 30px 10px 30px;
+    }
+    /* <!--------------------RIASEC ANALYSIS - MATRIX-------------------------> */
+    
+    .riasec-matrix {
+        margin-top: 80px;
+        clear: both;
+    }
+    
+    .riasec-matrix-table h3 {
+        margin-bottom: 20px;
+        color: red;
+    }
+    
+    .riasec-matrix-table table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+    }
+    
+    .riasec-matrix-table table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 75px 10px 75px;
+    }
+    
+    .riasec-matrix-table table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 30px 10px 30px;
+    }
+    
+    .riasec-matrix-table table th {
+        color: red;
+    }
+    
+    .riasec-matrix-para {
+        margin-top: 40px;
+    }
+    
+    .riasec-matrix-para p {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-align: justify;
+    }
+    
+    .riasec-matrix-table2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .riasec-matrix-table2 table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 75px 10px 75px;
+    }
+    
+    .riasec-matrix-table2 table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 75px 10px 75px;
+    }
+    
+    .riasec-matrix-table2 table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 75px 10px 75px;
+    }
+    /* <!-------------- MCKNSY ANALYSIS ------------------> */
+    
+    .mcknsy-analysis {
+        margin-top: 80px;
+    }
+    
+    .mcknsy-analysis-para h3 {
+        margin-bottom: 20px;
+        color: red;
+    }
+    
+    .mcknsy-analysis-para {
+        margin-bottom: 40px;
+    }
+    
+    .mcknsy-analysis-para p {
+        color: brown;
+        text-align: justify;
+    }
+    
+    .mcknsy-table table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 20px 40px 20px 40px;
+    }
+    
+    .mcknsy-table table td,
+    .mcknsy-table table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px 40px 10px 40px;
+    }
+    
+    .mcknsy-left {
+        float: left;
+        margin-right: 40px;
+    }
+    
+    .mcknsy-right table,
+    .mcknsy-right table td {
+        text-align: justify;
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 50px 20px 50px 20px;
+    }
+    /* <!--------------------------CARL JUNG INTROVERT EXTROVERT ANALYSIS-------------------------------> */
+    
+    .carl-jung-section {
+        margin-top: 80px;
+    }
+    
+    .carl-jung-para {
+        border: 1px solid black;
+        align-items: center;
+        padding: 20px 30px 20px 30px;
+        margin-bottom: 50px;
+    }
+    
+    .carl-jung-table {
+        display: flex;
+    }
+    
+    .carl-jung-table table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-right: 20px;
+    }
+    
+    .carl-jung-table table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 30px 40px 30px 40px;
+    }
+    
+    .carl-jung-table table td ul li {
+        padding: 10px;
+    }
+    
+    .data {
+        margin-top: 50px;
+    }
+    
+    .data table {
+        text-align: center;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        width: 100px;
+    }
+    
+    .data table th {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+    
+    .data table td {
+        border: 2px solid #000;
+        border-collapse: collapse;
+        padding: 30px 0 30px 0;
+    }
+    
+    .carl-jung-para2 {
+        margin-top: 50px;
+        border: 1px solid black;
+        text-align: justify;
+        padding: 20px 30px 20px 30px;
+        margin-bottom: 50px;
+    }
+    
+    .carl-jung-table2 {
+        display: flex;
+    }
+    
+    .carl-jung-table2 table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-right: 20px;
+    }
+    
+    .carl-jung-table2 table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 30px 40px 30px 40px;
+    }
+    
+    .carl-jung-table2 table td ul li {
+        padding: 5px;
+    }
+    /* <!-------------- BIRD TEST INTRO--------------------> */
+    
+    .bird-test-intro {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    
+    .bird-test-intro-para {
+        color: blue;
+        text-align: justify;
+    }
+    
+    .bird-test-intro-para p {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    
+    .bird-test-intro-table {
+        display: flex;
+    }
+    
+    .bird-test-intro-table table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-right: 30px;
+    }
+    
+    .bird-test-intro-table table th {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 30px;
+    }
+    
+    .bird-test-intro-table table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 30px;
+    }
