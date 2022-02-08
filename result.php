@@ -300,9 +300,11 @@ for($x = 0; $x < $arrlength4; $x++) {
     <div class="overlay">
         <div class="container">
             <h2>Results</h2>
+
         </div> <!-- /.container -->
     </div> <!-- /.overlay -->
 </div>
+<a href="pdf/index.php?userid=<?php echo $userid ?>&testid=<?php echo $testid; ?>">Get PDF</a>
 <div class="faq-page ">
     <div class="container">
 

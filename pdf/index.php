@@ -1,3 +1,57 @@
+<?php 
+    session_start();
+    require_once('../dashboard/modal/db.php');
+
+
+  
+    if(isset($_GET['userid']))
+    {
+        $userid = $_GET['userid'];
+        $testid = $_GET['testid'];
+    }
+    for($x = 1; $x <= 8; $x++) {
+    $catid="CAT-".$x;
+    
+    $s = "SELECT sum(answer) as  cat FROM answers WHERE testid = '$testid' AND category = '$catid'";
+    $q = mysqli_query($con,$s);
+    $r = mysqli_fetch_array($q);
+    
+       $tot = $r['cat']/50*100;
+       
+       $ran1[]=$tot;
+       
+    }
+      
+    // Rank Allacation
+
+
+    $numbers = $ran1;
+    rsort($numbers);
+    
+    $arrlength = count($numbers);
+    $i=0;
+    $mark=0;
+    $rank = [];
+    for($x = 0; $x < $arrlength; $x++) {    
+    //   echo $numbers[$x]; 
+    //   echo "<br>";
+      if($numbers[$x]!= $mark){
+       $i=$i+1;  
+       $mark=number_format($numbers[$x]);
+       $rank[$mark] = $i;
+    //    echo "Rank".$i;
+    //    echo "<br>";
+      }
+      else
+      {
+
+      $i=$i+1;
+      
+      }
+      
+      
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -207,17 +261,22 @@
             <div class="p11-table">
 
                 <h2>TABLE MI RELATIVE PERCENTAGE</h2>
-                <table class="table table-striped table-bordered" id="myTable1">
+                <table class="table table-striped table-bordered" id="myTable1" style="width:100%">
                     <thead>
-                        <tr class="bg-success text-white">
-                            <th colspan="4" class="text-center">TOTAL INTELLEGENCE</th>
-                        </tr>
+                    <colgroup>
+                        <col style="background-color:gray;">
+                        <col style="background-color:darkgray;">
+                        <col style="background-color: yellow;">
+                        <col style="background-color: rgb(184, 159, 159);">
+                        <col style="background-color: rgb(163, 129, 67);">
+                    </colgroup>
+                        
                         <?php 
 
 $ran[] = 0;
 
 ?>
-                        <tr class="bg-info text-white">
+                        <tr style="background-color: violet;">
                             <th scope="col" class="text-center">S.No</th>
                             <th scope="col" class="text-center">INTELLEGENCE</th>
 
@@ -228,19 +287,19 @@ $ran[] = 0;
                     </thead>
                     <tbody>
                         <tr>
-                            <th class="text-center">1</th>
-                            <th class="text-center">LOGICAL</th>
+                            <th class="text-center">1-Log</th>
+                            <th class="text-center">Logical-Mathematical 1	</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat1 FROM answers WHERE testid = '$testid' AND category = 'CAT-1'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat1']/50*100;
+$tot1 = $r['cat1']/50*100;
 
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$ran[]=$tot1;
+$total1=number_format($tot1);
+echo $tot1;
 
 $averagelogical =  $r['cat1']/50*100;
 ?>
@@ -253,18 +312,18 @@ $averagelogical =  $r['cat1']/50*100;
                             </th>
                         </tr>
                         <tr>
-                            <th class="text-center">2</th>
-                            <th class="text-center">MUSICAL</th>
+                            <th class="text-center">2-Mus</th>
+                            <th class="text-center">Musical</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat2 FROM answers WHERE testid = '$testid' AND category = 'CAT-2'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat2']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot2 = $r['cat2']/50*100;
+$ran[]=$tot2;
+$total1=number_format($tot2);
+echo $tot2;
 
 $averagemusical =  $r['cat2']/50*100;
 ?>
@@ -277,18 +336,18 @@ $averagemusical =  $r['cat2']/50*100;
                             </th>
                         </tr>
                         <tr>
-                            <th class="text-center">3</th>
-                            <th class="text-center">NATURAL</th>
+                            <th class="text-center">3-Nat</th>
+                            <th class="text-center">Naturalist</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat3 FROM answers WHERE testid = '$testid' AND category = 'CAT-3'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot= $r['cat3']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot3= $r['cat3']/50*100;
+$ran[]=$tot3;
+$total1=number_format($tot3);
+echo $tot3;
 $averagenatural =  $r['cat3']/50*100;
 ?>
                             </th>
@@ -301,18 +360,18 @@ $averagenatural =  $r['cat3']/50*100;
                             </th>
                         </tr>
                         <tr>
-                            <th class="text-center">4</th>
-                            <th class="text-center">VERBAL LINGUIS</th>
+                            <th class="text-center">4-V-Ling</th>
+                            <th class="text-center">Verbal Linguistic</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat4 FROM answers WHERE testid = '$testid' AND category = 'CAT-4'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat4']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot4 = $r['cat4']/50*100;
+$ran[]=$tot4;
+$total1=number_format($tot4);
+echo $tot4;
 
 $averageverbal =  $r['cat4']/50*100;
 ?>
@@ -325,18 +384,18 @@ $averageverbal =  $r['cat4']/50*100;
                             </th>
                         </tr>
                         <tr>
-                            <th class="text-center">5</th>
-                            <th class="text-center">INTER PERSONAL</th>
+                            <th class="text-center">5-Inter</th>
+                            <th class="text-center">Interpersonal</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat5 FROM answers WHERE testid = '$testid' AND category = 'CAT-5'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat5']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot5 = $r['cat5']/50*100;
+$ran[]=$tot5;
+$total1=number_format($tot5);
+echo $tot5;
 
 $averageinterpersonal =  $r['cat5']/50*100;
 ?>
@@ -349,18 +408,18 @@ $averageinterpersonal =  $r['cat5']/50*100;
                             </th>
                         </tr>
                         <tr>
-                            <th class="text-center">6</th>
-                            <th class="text-center">BODY KINETHETIC</th>
+                            <th class="text-center">6-Kine	</th>
+                            <th class="text-center">Kinethetic -Bodily-Kinesthetic	</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat6 FROM answers WHERE testid = '$testid' AND category = 'CAT-6'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat6']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot6 = $r['cat6']/50*100;
+$ran[]=$tot6;
+$total1=number_format($tot6);
+echo $tot6;
 
 $averagebody =  $r['cat6']/50*100;
 ?>
@@ -374,18 +433,18 @@ $averagebody =  $r['cat6']/50*100;
                         </tr>
                         </tr>
                         <tr>
-                            <th class="text-center">7</th>
-                            <th class="text-center">VISUAL SPATIAAL</th>
+                            <th class="text-center">7-Visu	</th>
+                            <th class="text-center">Spatial-Visual</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat7 FROM answers WHERE testid = '$testid' AND category = 'CAT-7'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat7']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot7 = $r['cat7']/50*100;
+$ran[]=$tot7;
+$total1=number_format($tot7);
+echo $tot7;
 
 $averagevisual =  $r['cat7']/50*100;
 ?>
@@ -398,18 +457,18 @@ $averagevisual =  $r['cat7']/50*100;
                             </th>
                         </tr>
                         <tr>
-                            <th class="text-center">8</th>
-                            <th class="text-center">INTRA</th>
+                            <th class="text-center">8-Intral</th>
+                            <th class="text-center">Intrapersonal</th>
                             <th class="text-center">
                                 <?php 
 $s = "SELECT sum(answer) as cat8 FROM answers WHERE testid = '$testid' AND category = 'CAT-8'";
 $q = mysqli_query($con,$s);
 $r = mysqli_fetch_array($q);
 
-$tot = $r['cat8']/50*100;
-$ran[]=$tot;
-$total1=number_format($tot);
-echo $tot;
+$tot8 = $r['cat8']/50*100;
+$ran[]=$tot8;
+$total1=number_format($tot8);
+echo $tot8;
 
 $averageintra =  $r['cat8']/50*100;
 
@@ -425,184 +484,30 @@ $averageintra =  $r['cat8']/50*100;
 
                     </tbody>
                 </table>
-                <table style="width: 100%;">
-                    <colgroup>
-                        <col style="background-color:gray;">
-                        <col style="background-color:darkgray;">
-                        <col style="background-color: yellow;">
-                        <col style="background-color: rgb(184, 159, 159);">
-                        <col style="background-color: rgb(163, 129, 67);">
-                    </colgroup>
-                    <tr style="background-color: violet;">
-                        <th>
-                            S.NO
-                        </th>
-                        <th>
-                            INTELLIGENCE- RELATIVE
-                        </th>
-                        <th>
-                            TOTAL
-                        </th>
-                        <th>
-                            %
-                        </th>
-                        <th>
-                            RANK
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>1-Log</td>
-                        <td>
-                            Logical-Mathematical 1
-                        </td>
-                        <td>
-                            35
-                        </td>
-                        <td>
-                            14.58
-                        </td>
-                        <td>
-                            1
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2-Mus</td>
-                        <td>
-                            Musical
-                        </td>
-                        <td>
-                            27
-                        </td>
-                        <td>
-                            11.25
-                        </td>
-                        <td>
-                            7
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>3-Nat</td>
-                        <td>
-                            Naturalist
-                        </td>
-                        <td>
-                            35
-                        </td>
-                        <td>
-                            14.58
-                        </td>
-                        <td>
-                            1
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4-V-Ling</td>
-                        <td>
-                            Verbal Linguistic
-                        </td>
-                        <td>
-                            21
-                        </td>
-                        <td>
-                            8.75
-                        </td>
-                        <td>
-                            8
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5-Inter</td>
-                        <td>
-                            Interpersonal
-                        </td>
-                        <td>
-                            31
-                        </td>
-                        <td>
-                            12.92
-                        </td>
-                        <td>
-                            3
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>6-Kine</td>
-                        <td>
-                            Kinethetic -Bodily-Kinesthetic
-                        </td>
-                        <td>
-                            31
-                        </td>
-                        <td>
-                            12.92
-                        </td>
-                        <td>
-                            3
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>7-Visu</td>
-                        <td>
-                            Spatial-Visual
-                        </td>
-                        <td>
-                            30
-                        </td>
-                        <td>
-                            12.50
-                        </td>
-                        <td>
-                            5
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>8-Intral</td>
-                        <td>
-                            Intrapersonal
-                        </td>
-                        <td>
-                            30
-                        </td>
-                        <td>
-                            12.50
-                        </td>
-                        <td>
-                            5
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: rgb(46, 45, 45);"></td>
-                        <td style="background-color: rgb(46, 45, 45);">
-
-                        </td>
-                        <td>
-                            240
-                        </td>
-                        <td>
-                            75.00
-                        </td>
-                        <td style="background-color: rgb(46, 45, 45);">
-
-                        </td>
-                    </tr>
-                </table>
+                <!--  -->
             </div>
-
+            <?php
+ 
+ $dataPoints = array( 
+     array("y" => $logicalrank, "label" => "1-Log" ),
+     array("y" => $musicalrank, "label" => "2-Mus" ),
+     array("y" => $naturalrank, "label" => "3-Nat" ),
+     array("y" => $verbalrank, "label" => "4-V-ling" ),
+     array("y" => $interpersonalrank, "label" => "5-Inter" ),
+     array("y" => $bodyrank, "label" => "6-Kine" ),
+     array("y" => $visualrank, "label" => "7-Visu" ),
+     array("y" => $intrarank, "label" => "8-Intra" )
+ );
+  
+ ?>
             <div>
                 <h2>CHART MI GROUP PERCENTAGE</h2>
-                <img src="graph3.png" style="width:100%;">
+                <!-- <img src="graph3.png" style="width:100%;"> -->
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
             </div>
         </div>
     </section>
-
+    
 
     <!-- Page 14 New -->
 
@@ -642,10 +547,10 @@ $averageintra =  $r['cat8']/50*100;
                             1-Log
                         </td>
                         <td>
-                            87.5
+                            <?php echo $tot1 ?>
                         </td>
                         <td>
-                            1
+                            <?php echo $logicalrank ?>
                         </td>
                     </tr>
 
@@ -655,10 +560,10 @@ $averageintra =  $r['cat8']/50*100;
                         </td>
                         <td>2-Mus</td>
                         <td>
-                            67.5
+                        <?php echo $tot2 ?>
                         </td>
                         <td>
-                            7
+                        <?php echo $musicalrank ?>
                         </td>
                     </tr>
 
@@ -669,11 +574,11 @@ $averageintra =  $r['cat8']/50*100;
                         </td>
                         <td>3-Nat</td>
                         <td>
-                            87.5
+                        <?php echo $tot3 ?>
                         </td>
 
                         <td>
-                            1
+                        <?php echo $naturalrank ?>
                         </td>
                     </tr>
 
@@ -683,10 +588,10 @@ $averageintra =  $r['cat8']/50*100;
                         </td>
                         <td>4-V-Ling</td>
                         <td>
-                            52.5
+                        <?php echo $tot4 ?>
                         </td>
                         <td>
-                            8
+                        <?php echo $verbalrank ?>
                         </td>
                     </tr>
 
@@ -698,10 +603,10 @@ $averageintra =  $r['cat8']/50*100;
 
 
                         <td>
-                            77.5
+                        <?php echo $tot5 ?>
                         </td>
                         <td>
-                            3
+                            <?php echo $interpersonalrank ?>
                         </td>
                     </tr>
 
@@ -711,10 +616,10 @@ $averageintra =  $r['cat8']/50*100;
                         </td>
                         <td>6-Kine</td>
                         <td>
-                            77.5
+                        <?php echo $tot6 ?>
                         </td>
                         <td>
-                            3
+                        <?php echo $bodyrank ?>
                     </tr>
                     </td>
 
@@ -724,10 +629,10 @@ $averageintra =  $r['cat8']/50*100;
                         </td>
                         <td>7-Visu</td>
                         <td>
-                            75.0
+                        <?php echo $tot7 ?>
                         </td>
                         <td>
-                            5
+                            <?php echo $visualrank ?>
                         </td>
                     </tr>
 
@@ -738,10 +643,10 @@ $averageintra =  $r['cat8']/50*100;
                         <td>8-Intral</td>
 
                         <td>
-                            75.0
+                        <?php echo $tot8 ?>
                         </td>
                         <td>
-                            5
+                        <?php echo $intrarank ?>
                         </td>
                     </tr>
 
@@ -787,10 +692,10 @@ $averageintra =  $r['cat8']/50*100;
             </div>
             <!-- page 15 start -->
 
-            <div>
+            <!-- <div>
                 <h2 style="clear: both;">CHART MI GROUP PERCENTAGE</h2>
                 <img src="graph4.png" style="width:100%;">
-            </div>
+            </div> -->
             <!-- page 15 end -->
         </div>
     </section>
@@ -804,7 +709,1238 @@ $averageintra =  $r['cat8']/50*100;
                 about how many answered in 1.2.3.4 ( all in percentages ) and additionally <br> <br> 1 (means strong- disagree ) ,2 (means - disagree ) , 3(means -agree ) and 4 (means strong- agree ). <br> <br> Hope you can understand the scores and follow
                 the table.
             </p>
+            <table class="table table-bordered table-striped" style="display:none">
+                                            <thead class="bg-success text-white">
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Most Disagree</th>
+                                                    <th>Disagree</th>
+                                                    <th>Netrual</th>
+                                                    <th>Agree</th>
+                                                    <th>Most Agree</th>
+                                                    <th>Most Disagree + Disagree</th>
+                                                    <th>Agree + Most Agree</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>LOGICAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot1 = $res1 + $res2 + $n;
+                                            echo $tot1; 
 
+                                            $logsum = $tot1/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>MUSICAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot2 = $res1 + $res2 + $n;
+                                            echo $tot2; 
+
+                                            $mussum = $tot2/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NATURAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot3 = $res1 + $res2 + $n;
+                                            echo $tot3; 
+
+                                            $natsum = $tot3/(10*5)*100;
+                                        ?>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th>VERBAL LINGUIS</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot4 = $res1 + $res2 + $n;
+                                            echo $tot4; 
+                                            $versum = $tot4/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>INTER PERSONAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot5 = $res1 + $res2 + $n;
+                                            echo $tot5; 
+
+                                            $interpersonalsum = $tot5/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>BODY KINETHETIC </th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot6 = $res1 + $res2 + $n;
+                                            echo $tot6; 
+
+                                            $bodyknesum = $tot6/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>VISUAL SPATIAAL </th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+
+                                            $d
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot7 = $res1 + $res2 + $n;
+                                            echo $tot7; 
+
+                                            $visualsum = $tot7/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>INTRA</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $md = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $da = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $n = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $a = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            echo $r1['counts'];
+                                            $ma = $r1['counts'];
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res1 = $md+$da;
+                                            echo $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a+$ma;
+                                            echo $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot8 = $res1 + $res2 + $n;
+                                            echo $tot8; 
+
+                                            $intrasum = $tot8/(10*5)*100;
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+            <table class="table table-bordered table-striped">
+                                            <thead class="bg-success text-white">
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>MD</th>
+                                                    <th>DA</th>
+                                                    <th>N</th>
+                                                    <th>A</th>
+                                                    <th>MA</th>
+                                                    <th>MD + DA</th>
+                                                    <th>A + MA</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>LOGICAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot1*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot1*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot1*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot1*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-1' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot1*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot1*100+$da/$tot1*100;
+                                        echo number_format($res1,1);
+
+                                         $disagreeloical = $res1;
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot1*100+$ma/$tot1*100;
+                                            echo number_format($res2,1);
+
+                                            $agreeloical = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>MUSICAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot2*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot2*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot2*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot2*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-2' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot2*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot2*100+$da/$tot2*100;
+                                        echo number_format($res1,1);
+
+                                        $disagreemusical = $res1;
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot2*100+$ma/$tot2*100;
+                                            echo number_format($res2,1);
+
+                                            $agreemusical = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NATURAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot3*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot3*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot3*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot3*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-3' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot3*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot3*100+$da/$tot3*100;
+                                        echo number_format($res1,1);
+
+                                        $disagreenatural = $res1;
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot3*100+$ma/$tot3*100;
+                                            echo number_format($res2,1);
+
+                                            $agreenatural = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>VERBAL LINGUIS</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot4*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot4*100);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot4*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot4*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-4' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot4*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot4*100+$da/$tot4*100;
+                                        echo number_format($res1,1);
+                                        $disagreeverbal = $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot4*100+$ma/$tot4*100;
+                                            echo number_format($res2,1);
+                                            $agreeverbal = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>INTER PERSONAL</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot5*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot5*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot5*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot5*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-5' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot5*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot5*100+$da/$tot5*100;
+                                        echo number_format($res1,1);
+
+                                        $disagreeinterpersonal = $res1;
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot5*100+$ma/$tot5*100;
+                                            echo number_format($res2,1);
+
+                                            $agreeinterpersonal = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>BODY KINETHETIC </th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot6*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot6*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot6*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot6*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-6' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot6*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot6*100+$da/$tot6*100;
+                                        echo number_format($res1,1);
+
+                                        $disagreebody = $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot6*100+$ma/$tot6*100;
+                                            echo number_format($res2,1);
+
+                                            $agreebody = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>VISUAL SPATIAAL </th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot7*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot7*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot7*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot7*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-7' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot7*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot7*100+$da/$tot7*100;
+                                        echo number_format($res1,1);
+                                        $disagreevisual = $res1;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot7*100+$ma/$tot7*100;
+                                            echo number_format($res2,1);
+
+                                            $agreevisual = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>INTRA</th>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '1'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            $r1['counts'];
+                                            $md = $r1['counts'];
+                                            echo number_format($md/$tot8*100,1);
+                                            
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '2'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                             $da = $r1['counts'];
+                                            //  echo $da*10;
+                                             echo number_format($da/$tot8*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '3'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $n = $r1['counts'];
+                                            // echo $n*10;
+                                            echo number_format($n/$tot8*100,1);
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '4'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $a = $r1['counts'];
+                                            // echo $a*10;
+                                            echo number_format($a/$tot8*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $s1 = "SELECT count(*)  as counts FROM answers WHERE testid = '$testid' AND category = 'CAT-8' and answer = '5'";
+                                            $q1 = mysqli_query($con,$s1);
+                                            $r1 = mysqli_fetch_array($q1);
+                                            
+                                            $ma = $r1['counts'];
+                                            // echo $ma*10;
+                                            echo number_format($ma/$tot8*100,1);
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                          $res1 = $md/$tot8*100+$da/$tot8*100;
+                                        echo number_format($res1,2);
+
+                                        $intradisagree = $res1;
+
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $res2 = $a/$tot8*100+$ma/$tot8*100;
+                                            echo number_format($res2,2);
+
+                                            $intraagree = $res2;
+                                        ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php 
+                                            $tot = $res1 + $res2 + $n*10;
+                                            echo number_format($tot,1); 
+                                        ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
             <!-- page 17 start -->
 
             <table style="width: 100%;">
@@ -3869,3 +5005,26 @@ $averageintra =  $r['cat8']/50*100;
 </body>
 
 </html>
+<script>
+window.onload = function() {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: ""
+	},
+	axisY: {
+		title: "Ranks"
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "10 Ranks",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+ 
+}
+</script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
